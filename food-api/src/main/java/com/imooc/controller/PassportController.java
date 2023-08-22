@@ -3,13 +3,17 @@ package com.imooc.controller;
 import com.imooc.pojo.Users;
 import com.imooc.pojo.bo.UserBO;
 import com.imooc.service.UserService;
+import com.imooc.utils.CookieUtils;
 import com.imooc.utils.JSONResult;
+import com.imooc.utils.JsonUtils;
+import com.imooc.utils.MD5Utils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
 @Api(value = "注册登陆", tags = {"注册登陆的相关接口"})
@@ -39,7 +43,7 @@ public class PassportController {
 
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/register")
-    public JSONResult register(@RequestBody UserBO bo) {
+    public JSONResult register(@RequestBody UserBO bo, HttpServletRequest req, HttpServletResponse resp) {
         String username = bo.getUsername();
         String password = bo.getPassword();
         String confirmPassword = bo.getConfirmPassword();
@@ -61,6 +65,40 @@ public class PassportController {
             return JSONResult.errorMsg("用户名已存在");
         }
         Users user = userService.createUser(bo);
+        Users userRes = setNullProperty(user);
+        CookieUtils.setCookie(req, resp, "user", JsonUtils.objectToJson(userRes), true);
         return JSONResult.ok(user);
+    }
+
+    @ApiOperation(value = "用户登陆", notes = "用户登陆", httpMethod = "POST")
+    @PostMapping("/login")
+    public JSONResult login(@RequestBody UserBO bo, HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        String username = bo.getUsername();
+        String password = bo.getPassword();
+
+        if (StringUtils.isBlank(username)) {
+            return JSONResult.errorMsg("用户名为空");
+        }
+
+        if (StringUtils.isBlank(password)) {
+            return JSONResult.errorMsg("密码为空");
+        }
+
+        Users user = userService.queryUserForLogin(username, MD5Utils.getMD5Str(password));
+        if (user == null) {
+            return JSONResult.errorMsg("用户名或密码错误");
+        }
+
+        Users userRes = setNullProperty(user);
+        CookieUtils.setCookie(req, resp, "user", JsonUtils.objectToJson(userRes), true);
+        return JSONResult.ok();
+    }
+
+    private Users setNullProperty(Users user) {
+        user.setPassword(null);
+        user.setRealname(null);
+        user.setMobile(null);
+        user.setEmail(null);
+        return user;
     }
 }

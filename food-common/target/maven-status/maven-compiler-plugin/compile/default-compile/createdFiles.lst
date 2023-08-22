@@ -1,9 +1,11 @@
 com/imooc/enums/CommentLevel.class
+com/imooc/utils/JsonUtils.class
 com/imooc/enums/YesOrNo.class
 com/imooc/enums/Sex.class
 com/imooc/enums/OrderStatusEnum.class
 com/imooc/utils/JSONResult.class
 com/imooc/enums/PayMethod.class
 com/imooc/utils/DateUtil.class
+com/imooc/utils/CookieUtils.class
 com/imooc/utils/MD5Utils.class
 com/imooc/App.class
