@@ -1,4 +1,7 @@
+/Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/config/WebMvcConfig.java
+/Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/aspect/ServiceLogAspect.java
 /Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/controller/PassportController.java
 /Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/controller/StuController.java
+/Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/config/Swagger2.java
+/Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/config/CorsConfig.java
 /Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/Application.java
-/Users/lqy007700/Data/code/java-application/food/food-api/src/main/java/com/imooc/controller/HelloController.java
