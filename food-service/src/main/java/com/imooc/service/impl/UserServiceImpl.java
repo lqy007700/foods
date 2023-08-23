@@ -5,6 +5,7 @@ import com.imooc.mapper.UsersMapper;
 import com.imooc.pojo.Users;
 import com.imooc.pojo.bo.UserBO;
 import com.imooc.service.UserService;
+import com.imooc.utils.DateUtil;
 import com.imooc.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,13 +43,13 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         user.setNickname(bo.getUsername());
-        user.setBirthday("1900-01-01");
+        user.setBirthday(DateUtil.stringToDate("1900-01-01"));
         user.setSex(Sex.secret.type);
 
-        user.setCreateTime(new Date());
-        user.setUpdateTime(new Date());
+        user.setCreatedTime(new Date());
+        user.setUpdatedTime(new Date());
 
-        user.setAge(0);
+//        user.set(0);
         user.setRealname(bo.getUsername());
 
         // 默认头像

@@ -1,225 +1,202 @@
 package com.imooc.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Table(name = "order_status")
 public class OrderStatus {
     /**
-     * 主键
+     * 订单ID;对应订单表的主键id
      */
-    private Integer id;
-
+    @Id
     @Column(name = "order_id")
-    private Integer orderId;
-
-    @Column(name = "order_status")
-    private Byte orderStatus;
+    private String orderId;
 
     /**
-     * 订单创建时间
+     * 订单状态
      */
-    @Column(name = "create_time")
-    private Integer createTime;
+    @Column(name = "order_status")
+    private Integer orderStatus;
 
     /**
-     * 支付时间
+     * 订单创建时间;对应[10:待付款]状态
+     */
+    @Column(name = "created_time")
+    private Date createdTime;
+
+    /**
+     * 支付成功时间;对应[20:已付款，待发货]状态
      */
     @Column(name = "pay_time")
-    private Integer payTime;
+    private Date payTime;
 
     /**
-     * 发货时间
+     * 发货时间;对应[30：已发货，待收货]状态
      */
     @Column(name = "deliver_time")
-    private Integer deliverTime;
+    private Date deliverTime;
 
     /**
-     * 交易成功时间
+     * 交易成功时间;对应[40：交易成功]状态
      */
     @Column(name = "success_time")
-    private Integer successTime;
-
-    @Column(name = "close_time")
-    private Integer closeTime;
+    private Date successTime;
 
     /**
-     * 留言时间
+     * 交易关闭时间;对应[50：交易关闭]状态
+     */
+    @Column(name = "close_time")
+    private Date closeTime;
+
+    /**
+     * 留言时间;用户在交易成功后的留言时间
      */
     @Column(name = "comment_time")
-    private Integer commentTime;
+    private Date commentTime;
 
     /**
-     * 更新时间
-     */
-    @Column(name = "update_time")
-    private Date updateTime;
-
-    /**
-     * 获取主键
+     * 获取订单ID;对应订单表的主键id
      *
-     * @return id - 主键
+     * @return order_id - 订单ID;对应订单表的主键id
      */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * 设置主键
-     *
-     * @param id 主键
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * @return order_id
-     */
-    public Integer getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
     /**
-     * @param orderId
+     * 设置订单ID;对应订单表的主键id
+     *
+     * @param orderId 订单ID;对应订单表的主键id
      */
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
     /**
-     * @return order_status
+     * 获取订单状态
+     *
+     * @return order_status - 订单状态
      */
-    public Byte getOrderStatus() {
+    public Integer getOrderStatus() {
         return orderStatus;
     }
 
     /**
-     * @param orderStatus
+     * 设置订单状态
+     *
+     * @param orderStatus 订单状态
      */
-    public void setOrderStatus(Byte orderStatus) {
+    public void setOrderStatus(Integer orderStatus) {
         this.orderStatus = orderStatus;
     }
 
     /**
-     * 获取订单创建时间
+     * 获取订单创建时间;对应[10:待付款]状态
      *
-     * @return create_time - 订单创建时间
+     * @return created_time - 订单创建时间;对应[10:待付款]状态
      */
-    public Integer getCreateTime() {
-        return createTime;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
     /**
-     * 设置订单创建时间
+     * 设置订单创建时间;对应[10:待付款]状态
      *
-     * @param createTime 订单创建时间
+     * @param createdTime 订单创建时间;对应[10:待付款]状态
      */
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     /**
-     * 获取支付时间
+     * 获取支付成功时间;对应[20:已付款，待发货]状态
      *
-     * @return pay_time - 支付时间
+     * @return pay_time - 支付成功时间;对应[20:已付款，待发货]状态
      */
-    public Integer getPayTime() {
+    public Date getPayTime() {
         return payTime;
     }
 
     /**
-     * 设置支付时间
+     * 设置支付成功时间;对应[20:已付款，待发货]状态
      *
-     * @param payTime 支付时间
+     * @param payTime 支付成功时间;对应[20:已付款，待发货]状态
      */
-    public void setPayTime(Integer payTime) {
+    public void setPayTime(Date payTime) {
         this.payTime = payTime;
     }
 
     /**
-     * 获取发货时间
+     * 获取发货时间;对应[30：已发货，待收货]状态
      *
-     * @return deliver_time - 发货时间
+     * @return deliver_time - 发货时间;对应[30：已发货，待收货]状态
      */
-    public Integer getDeliverTime() {
+    public Date getDeliverTime() {
         return deliverTime;
     }
 
     /**
-     * 设置发货时间
+     * 设置发货时间;对应[30：已发货，待收货]状态
      *
-     * @param deliverTime 发货时间
+     * @param deliverTime 发货时间;对应[30：已发货，待收货]状态
      */
-    public void setDeliverTime(Integer deliverTime) {
+    public void setDeliverTime(Date deliverTime) {
         this.deliverTime = deliverTime;
     }
 
     /**
-     * 获取交易成功时间
+     * 获取交易成功时间;对应[40：交易成功]状态
      *
-     * @return success_time - 交易成功时间
+     * @return success_time - 交易成功时间;对应[40：交易成功]状态
      */
-    public Integer getSuccessTime() {
+    public Date getSuccessTime() {
         return successTime;
     }
 
     /**
-     * 设置交易成功时间
+     * 设置交易成功时间;对应[40：交易成功]状态
      *
-     * @param successTime 交易成功时间
+     * @param successTime 交易成功时间;对应[40：交易成功]状态
      */
-    public void setSuccessTime(Integer successTime) {
+    public void setSuccessTime(Date successTime) {
         this.successTime = successTime;
     }
 
     /**
-     * @return close_time
+     * 获取交易关闭时间;对应[50：交易关闭]状态
+     *
+     * @return close_time - 交易关闭时间;对应[50：交易关闭]状态
      */
-    public Integer getCloseTime() {
+    public Date getCloseTime() {
         return closeTime;
     }
 
     /**
-     * @param closeTime
+     * 设置交易关闭时间;对应[50：交易关闭]状态
+     *
+     * @param closeTime 交易关闭时间;对应[50：交易关闭]状态
      */
-    public void setCloseTime(Integer closeTime) {
+    public void setCloseTime(Date closeTime) {
         this.closeTime = closeTime;
     }
 
     /**
-     * 获取留言时间
+     * 获取留言时间;用户在交易成功后的留言时间
      *
-     * @return comment_time - 留言时间
+     * @return comment_time - 留言时间;用户在交易成功后的留言时间
      */
-    public Integer getCommentTime() {
+    public Date getCommentTime() {
         return commentTime;
     }
 
     /**
-     * 设置留言时间
+     * 设置留言时间;用户在交易成功后的留言时间
      *
-     * @param commentTime 留言时间
+     * @param commentTime 留言时间;用户在交易成功后的留言时间
      */
-    public void setCommentTime(Integer commentTime) {
+    public void setCommentTime(Date commentTime) {
         this.commentTime = commentTime;
-    }
-
-    /**
-     * 获取更新时间
-     *
-     * @return update_time - 更新时间
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置更新时间
-     *
-     * @param updateTime 更新时间
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 }

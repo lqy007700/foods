@@ -1,41 +1,64 @@
 package com.imooc.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.util.Date;
 
 public class Carousel {
     /**
      * 主键
      */
-    private Integer id;
+    @Id
+    private String id;
 
+    /**
+     * 图片 图片地址
+     */
     @Column(name = "image_url")
     private String imageUrl;
 
+    /**
+     * 背景色
+     */
     @Column(name = "background_color")
     private String backgroundColor;
 
+    /**
+     * 商品id 商品id
+     */
     @Column(name = "item_id")
-    private Integer itemId;
-
-    @Column(name = "cat_id")
-    private Integer catId;
-
-    private Byte type;
-
-    private Byte sort;
-
-    @Column(name = "is_show")
-    private Byte isShow;
+    private String itemId;
 
     /**
-     * 创建时间
+     * 商品分类id 商品分类id
+     */
+    @Column(name = "cat_id")
+    private String catId;
+
+    /**
+     * 轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
+     */
+    private Integer type;
+
+    /**
+     * 轮播图展示顺序
+     */
+    private Integer sort;
+
+    /**
+     * 是否展示
+     */
+    @Column(name = "is_show")
+    private Integer isShow;
+
+    /**
+     * 创建时间 创建时间
      */
     @Column(name = "create_time")
     private Date createTime;
 
     /**
-     * 更新时间
+     * 更新时间 更新
      */
     @Column(name = "update_time")
     private Date updateTime;
@@ -45,7 +68,7 @@ public class Carousel {
      *
      * @return id - 主键
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -54,139 +77,167 @@ public class Carousel {
      *
      * @param id 主键
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     /**
-     * @return image_url
+     * 获取图片 图片地址
+     *
+     * @return image_url - 图片 图片地址
      */
     public String getImageUrl() {
         return imageUrl;
     }
 
     /**
-     * @param imageUrl
+     * 设置图片 图片地址
+     *
+     * @param imageUrl 图片 图片地址
      */
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
     /**
-     * @return background_color
+     * 获取背景色
+     *
+     * @return background_color - 背景色
      */
     public String getBackgroundColor() {
         return backgroundColor;
     }
 
     /**
-     * @param backgroundColor
+     * 设置背景色
+     *
+     * @param backgroundColor 背景色
      */
     public void setBackgroundColor(String backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
     /**
-     * @return item_id
+     * 获取商品id 商品id
+     *
+     * @return item_id - 商品id 商品id
      */
-    public Integer getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
     /**
-     * @param itemId
+     * 设置商品id 商品id
+     *
+     * @param itemId 商品id 商品id
      */
-    public void setItemId(Integer itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
     /**
-     * @return cat_id
+     * 获取商品分类id 商品分类id
+     *
+     * @return cat_id - 商品分类id 商品分类id
      */
-    public Integer getCatId() {
+    public String getCatId() {
         return catId;
     }
 
     /**
-     * @param catId
+     * 设置商品分类id 商品分类id
+     *
+     * @param catId 商品分类id 商品分类id
      */
-    public void setCatId(Integer catId) {
+    public void setCatId(String catId) {
         this.catId = catId;
     }
 
     /**
-     * @return type
+     * 获取轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
+     *
+     * @return type - 轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
      */
-    public Byte getType() {
+    public Integer getType() {
         return type;
     }
 
     /**
-     * @param type
+     * 设置轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
+     *
+     * @param type 轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
      */
-    public void setType(Byte type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
     /**
-     * @return sort
+     * 获取轮播图展示顺序
+     *
+     * @return sort - 轮播图展示顺序
      */
-    public Byte getSort() {
+    public Integer getSort() {
         return sort;
     }
 
     /**
-     * @param sort
+     * 设置轮播图展示顺序
+     *
+     * @param sort 轮播图展示顺序
      */
-    public void setSort(Byte sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 
     /**
-     * @return is_show
+     * 获取是否展示
+     *
+     * @return is_show - 是否展示
      */
-    public Byte getIsShow() {
+    public Integer getIsShow() {
         return isShow;
     }
 
     /**
-     * @param isShow
+     * 设置是否展示
+     *
+     * @param isShow 是否展示
      */
-    public void setIsShow(Byte isShow) {
+    public void setIsShow(Integer isShow) {
         this.isShow = isShow;
     }
 
     /**
-     * 获取创建时间
+     * 获取创建时间 创建时间
      *
-     * @return create_time - 创建时间
+     * @return create_time - 创建时间 创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * 设置创建时间
+     * 设置创建时间 创建时间
      *
-     * @param createTime 创建时间
+     * @param createTime 创建时间 创建时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     * 获取更新时间
+     * 获取更新时间 更新
      *
-     * @return update_time - 更新时间
+     * @return update_time - 更新时间 更新
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     * 设置更新时间
+     * 设置更新时间 更新
      *
-     * @param updateTime 更新时间
+     * @param updateTime 更新时间 更新
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;

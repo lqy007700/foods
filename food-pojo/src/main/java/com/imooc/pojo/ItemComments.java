@@ -1,6 +1,7 @@
 package com.imooc.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Table(name = "item_comments")

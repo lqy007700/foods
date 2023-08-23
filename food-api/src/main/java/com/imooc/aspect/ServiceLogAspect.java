@@ -21,7 +21,7 @@ public class ServiceLogAspect {
      * 4. 异常 方法调用过程中出现异常
      * 5. 最终 方法调用结束后
      */
-    @Around("execution(* com.imooc.service.impl..*.*(..))")
+//    @Around("execution(* com.imooc.service.impl..*.*(..))")
     public Object recordTimeLog(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("========开始 {}.{} =======",
                 joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
