@@ -6,6 +6,7 @@ com/imooc/enums/OrderStatusEnum.class
 com/imooc/utils/JSONResult.class
 com/imooc/enums/PayMethod.class
 com/imooc/utils/DateUtil.class
+com/imooc/utils/PagedGridResult.class
 com/imooc/utils/CookieUtils.class
 com/imooc/utils/MD5Utils.class
 com/imooc/App.class

@@ -12,7 +12,7 @@ public class ItemComments {
     private Integer id;
 
     @Column(name = "item_id")
-    private Integer itemId;
+    private String itemId;
 
     @Column(name = "user_id")
     private Integer userId;
@@ -30,7 +30,7 @@ public class ItemComments {
      * 评价等级
      */
     @Column(name = "comment_level")
-    private Byte commentLevel;
+    private Integer commentLevel;
 
     /**
      * 评价内容
@@ -70,14 +70,14 @@ public class ItemComments {
     /**
      * @return item_id
      */
-    public Integer getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
     /**
      * @param itemId
      */
-    public void setItemId(Integer itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
@@ -142,7 +142,7 @@ public class ItemComments {
      *
      * @return comment_level - 评价等级
      */
-    public Byte getCommentLevel() {
+    public Integer getCommentLevel() {
         return commentLevel;
     }
 
@@ -151,7 +151,7 @@ public class ItemComments {
      *
      * @param commentLevel 评价等级
      */
-    public void setCommentLevel(Byte commentLevel) {
+    public void setCommentLevel(Integer commentLevel) {
         this.commentLevel = commentLevel;
     }
 
