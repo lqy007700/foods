@@ -14,6 +14,7 @@ public class StuServiceImpl implements StuService {
     @Autowired
     public StuMapper stuMapper;
 
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Stu getStuInfo(int id) {
         return stuMapper.selectByPrimaryKey(id);

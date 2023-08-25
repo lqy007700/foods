@@ -5,15 +5,13 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <result column="id" property="id" jdbcType="INTEGER" />
-    <result column="order_id" property="orderId" jdbcType="INTEGER" />
-    <result column="order_status" property="orderStatus" jdbcType="TINYINT" />
-    <result column="create_time" property="createTime" jdbcType="INTEGER" />
-    <result column="pay_time" property="payTime" jdbcType="INTEGER" />
-    <result column="deliver_time" property="deliverTime" jdbcType="INTEGER" />
-    <result column="success_time" property="successTime" jdbcType="INTEGER" />
-    <result column="close_time" property="closeTime" jdbcType="INTEGER" />
-    <result column="comment_time" property="commentTime" jdbcType="INTEGER" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <id column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="deliver_time" property="deliverTime" jdbcType="TIMESTAMP" />
+    <result column="success_time" property="successTime" jdbcType="TIMESTAMP" />
+    <result column="close_time" property="closeTime" jdbcType="TIMESTAMP" />
+    <result column="comment_time" property="commentTime" jdbcType="TIMESTAMP" />
   </resultMap>
 </mapper>
