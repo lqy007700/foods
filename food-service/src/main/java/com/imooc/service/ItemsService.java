@@ -22,4 +22,6 @@ public interface ItemsService {
     PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize);
 
     PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize);
+
+    PagedGridResult searchItemsByThirdCat(Integer catId, String sort, Integer page, Integer pageSize);
 }

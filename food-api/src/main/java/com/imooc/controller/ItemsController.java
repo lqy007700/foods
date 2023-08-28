@@ -119,4 +119,33 @@ public class ItemsController extends BaseController {
         PagedGridResult pagedGridResult = itemsService.searchItems(keywords, sort, page, pageSize);
         return JSONResult.ok(pagedGridResult);
     }
+
+    @ApiOperation(value = "根据分类id搜索商品列表", notes = "根据分类id搜索商品列表", httpMethod = "GET")
+    @GetMapping("/catItems")
+    public JSONResult search(
+            @ApiParam(name = "catId", value = "分类id", required = true)
+            @RequestParam Integer catId,
+            @ApiParam(name = "sort", value = "排序", required = true)
+            @RequestParam String sort,
+            @ApiParam(name = "page", value = "分页")
+            @RequestParam Integer page,
+            @ApiParam(name = "pageSize", value = "分页")
+            @RequestParam Integer pageSize
+    ) {
+
+        if (catId <= 0) {
+            return JSONResult.errorMsg("分类id错误");
+        }
+
+        if (page == null) {
+            page = 1;
+        }
+
+        if (pageSize == null) {
+            pageSize = COMMON_PAGE_SIZE;
+        }
+
+        PagedGridResult pagedGridResult = itemsService.searchItemsByThirdCat(catId, sort, page, pageSize);
+        return JSONResult.ok(pagedGridResult);
+    }
 }
