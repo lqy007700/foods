@@ -3,6 +3,7 @@ package com.imooc.controller;
 import com.imooc.pojo.*;
 import com.imooc.pojo.vo.CommentLevelCountsVO;
 import com.imooc.pojo.vo.ItemsInfoVO;
+import com.imooc.pojo.vo.ShopCatVO;
 import com.imooc.service.ItemsService;
 import com.imooc.utils.JSONResult;
 import com.imooc.utils.PagedGridResult;
@@ -147,5 +148,20 @@ public class ItemsController extends BaseController {
 
         PagedGridResult pagedGridResult = itemsService.searchItemsByThirdCat(catId, sort, page, pageSize);
         return JSONResult.ok(pagedGridResult);
+    }
+
+    @ApiOperation(value = "根据商品规格ids查找最新商品数据", notes = "根据商品规格ids查找最新商品数据", httpMethod = "GET")
+    @GetMapping("/refresh")
+    public JSONResult refresh(
+            @ApiParam(name = "itemSpecIds", value = "规格ids", required = true)
+            @RequestParam String itemSpecIds
+    ) {
+
+        if (StringUtils.isBlank(itemSpecIds)) {
+            return JSONResult.errorMsg("规格id错误");
+        }
+
+        List<ShopCatVO> shopCatVOS = itemsService.queryItemsBySpecIds(itemSpecIds);
+        return JSONResult.ok(shopCatVOS);
     }
 }

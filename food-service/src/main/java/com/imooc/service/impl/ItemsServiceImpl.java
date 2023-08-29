@@ -8,16 +8,20 @@ import com.imooc.pojo.*;
 import com.imooc.pojo.vo.CommentLevelCountsVO;
 import com.imooc.pojo.vo.ItemsCommentVO;
 import com.imooc.pojo.vo.SearchItemsVO;
+import com.imooc.pojo.vo.ShopCatVO;
 import com.imooc.service.ItemsService;
 import com.imooc.utils.DesensitizationUtil;
 import com.imooc.utils.PagedGridResult;
 import io.swagger.models.auth.In;
+import javafx.print.Collation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -164,5 +168,15 @@ public class ItemsServiceImpl implements ItemsService {
         PageHelper.startPage(page, pageSize);
         List<SearchItemsVO> list = itemsMapperCustom.searchItemsByThirdCat(map);
         return setPageGrid(list, page);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<ShopCatVO> queryItemsBySpecIds(String specIds) {
+        String[] ids = specIds.split(",");
+        ArrayList<String> specIdsList = new ArrayList<>();
+        Collections.addAll(specIdsList, ids);
+
+        return itemsMapperCustom.queryItemsBySpecIds(specIdsList);
     }
 }
