@@ -68,7 +68,7 @@ public class ItemsController extends BaseController {
     public JSONResult comments(
             @ApiParam(name = "itemId", value = "商品id", required = true)
             @RequestParam String itemId,
-            @ApiParam(name = "level", value = "评论等级", required = true)
+            @ApiParam(name = "level", value = "评论等级")
             @RequestParam Integer level,
             @ApiParam(name = "page", value = "分页")
             @RequestParam Integer page,
@@ -86,6 +86,10 @@ public class ItemsController extends BaseController {
 
         if (pageSize == null) {
             pageSize = COMMON_PAGE_SIZE;
+        }
+
+        if (level == null || level == 0) {
+            level = 1;
         }
 
         PagedGridResult pagedGridResult = itemsService.queryPagedComments(itemId, level, page, pageSize);

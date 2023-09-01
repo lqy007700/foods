@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService {
 //        user.set(0);
         user.setRealname(bo.getUsername());
 
+        user.setId("123");
         // 默认头像
         user.setFace("123");
         user.setMobile("");

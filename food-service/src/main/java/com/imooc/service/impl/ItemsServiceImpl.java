@@ -199,8 +199,8 @@ public class ItemsServiceImpl implements ItemsService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void decreaseItemSpecStock(String specId, int buyCount) {
-        int res = itemsMapperCustom.decreaseItemSpecStock(specId, buyCount);
-        if (res != 1) {
+        Integer res = itemsMapperCustom.decreaseItemSpecStock(specId, buyCount);
+        if (res == null || res != 1) {
             throw new RuntimeException("订单创建失败");
         }
     }

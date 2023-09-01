@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public void createOrder(OrderBO orderBO) {
+    public String createOrder(OrderBO orderBO) {
         String userId = orderBO.getUserId();
         String addressId = orderBO.getAddressId();
         String itemSpecIds = orderBO.getItemSpecIds();
@@ -83,6 +83,7 @@ public class OrderServiceImpl implements OrderService {
             orderItems.setId(sid.nextShort());
             orderItems.setOrderId(orderId);
             orderItems.setItemId(itemId);
+            orderItems.setItemSpecName(itemsSpec.getName());
             orderItems.setItemImg(imgUrl);
             orderItems.setItemName(item.getItemName());
             orderItems.setItemSpecId(sId);
@@ -92,7 +93,7 @@ public class OrderServiceImpl implements OrderService {
             orderItemsMapper.insert(orderItems);
 
             // 扣除库存
-            itemsService.decreaseItemSpecStock(sId, buyCounts);
+//            itemsService.decreaseItemSpecStock(sId, buyCounts);
         }
         orders.setTotalAmount(totalAmount);
         orders.setRealPayAmount(realPayAmount);
@@ -103,5 +104,6 @@ public class OrderServiceImpl implements OrderService {
         orderStatus1.setCreatedTime(new Date());
         orderStatus1.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
         orderStatusMapper.insert(orderStatus1);
+        return orderId;
     }
 }
