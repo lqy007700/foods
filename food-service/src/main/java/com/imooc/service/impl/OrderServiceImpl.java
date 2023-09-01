@@ -10,6 +10,7 @@ import com.imooc.pojo.bo.OrderBO;
 import com.imooc.service.AddressService;
 import com.imooc.service.ItemsService;
 import com.imooc.service.OrderService;
+import com.imooc.utils.DateUtil;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -105,5 +107,29 @@ public class OrderServiceImpl implements OrderService {
         orderStatus1.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
         orderStatusMapper.insert(orderStatus1);
         return orderId;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void closeOrder() {
+        OrderStatus orderStatus = new OrderStatus();
+        orderStatus.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
+
+        List<OrderStatus> list = orderStatusMapper.select(orderStatus);
+        for (OrderStatus os : list) {
+            Date createdTime = os.getCreatedTime();
+            int i = DateUtil.daysBetween(createdTime, new Date());
+            if (i >= 1) {
+                doCloseOrder(os.getOrderId());
+            }
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void doCloseOrder(String orderId) {
+        OrderStatus orderStatus = new OrderStatus();
+        orderStatus.setOrderId(orderId);
+        orderStatus.setOrderStatus(OrderStatusEnum.CLOSE.type);
+        orderStatusMapper.updateByPrimaryKeySelective(orderStatus);
     }
 }
