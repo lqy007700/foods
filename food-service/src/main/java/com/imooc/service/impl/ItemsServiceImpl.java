@@ -179,4 +179,29 @@ public class ItemsServiceImpl implements ItemsService {
 
         return itemsMapperCustom.queryItemsBySpecIds(specIdsList);
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public ItemsSpec queryItemsSpecById(String specId) {
+        return itemsSpecMapper.selectByPrimaryKey(specId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public String queryItemsMainImgById(String itemId) {
+        ItemsImg itemsImg = new ItemsImg();
+        itemsImg.setIsMain(1);
+        itemsImg.setItemId(itemId);
+        ItemsImg res = itemsImgMapper.selectOne(itemsImg);
+        return res != null ? res.getUrl() : "";
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void decreaseItemSpecStock(String specId, int buyCount) {
+        int res = itemsMapperCustom.decreaseItemSpecStock(specId, buyCount);
+        if (res != 1) {
+            throw new RuntimeException("订单创建失败");
+        }
+    }
 }

@@ -33,7 +33,7 @@ public class ItemsSpec {
     /**
      * 折扣力度
      */
-    private BigDecimal discounts;
+    private Integer discounts;
 
     /**
      * 优惠价
@@ -136,7 +136,7 @@ public class ItemsSpec {
      *
      * @return discounts - 折扣力度
      */
-    public BigDecimal getDiscounts() {
+    public Integer getDiscounts() {
         return discounts;
     }
 
@@ -145,7 +145,7 @@ public class ItemsSpec {
      *
      * @param discounts 折扣力度
      */
-    public void setDiscounts(BigDecimal discounts) {
+    public void setDiscounts(Integer discounts) {
         this.discounts = discounts;
     }
 
