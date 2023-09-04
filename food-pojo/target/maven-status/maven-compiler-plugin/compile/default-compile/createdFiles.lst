@@ -1,5 +1,6 @@
 com/imooc/pojo/vo/SearchItemsVO.class
 com/imooc/pojo/vo/ShopCatVO.class
+com/imooc/pojo/bo/center/CenterUserBO.class
 com/imooc/pojo/vo/CategoryVO.class
 com/imooc/pojo/bo/UserBO.class
 com/imooc/pojo/vo/ItemsInfoVO.class
