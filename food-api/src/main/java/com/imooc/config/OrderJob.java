@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class OrderJob {
 
     @Autowired
     private OrderService orderService;
 
-    @Scheduled(cron = "0/3 * * * * ?")
+//    @Scheduled(cron = "0/3 * * * * ?")
     public void autoCloseOrder() {
         System.out.println(DateUtil.getCurrentDateString(DateUtil.DATETIME_PATTERN));
         orderService.closeOrder();

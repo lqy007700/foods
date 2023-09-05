@@ -8,4 +8,5 @@ com/imooc/controller/OrderController.class
 com/imooc/controller/ItemsController.class
 com/imooc/controller/BaseController.class
 com/imooc/controller/ShopCatController.class
+com/imooc/controller/center/MyOrdersController.class
 com/imooc/config/MyConfig.class

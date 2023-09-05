@@ -1,3 +1,4 @@
+/Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/vo/MySubOrderItemVO.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/bo/OrderBO.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/vo/SearchItemsVO.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/vo/ItemsInfoVO.java
@@ -13,8 +14,10 @@
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/Stu.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/Category.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/OrderStatus.java
+/Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/vo/MyOrdersVO.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/OrderItem.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/vo/SimpleItemVO.java
+/Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/bo/center/CenterUserBO.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/Items.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/vo/CommentLevelCountsVO.java
 /Users/lqy007700/Data/code/java-application/food/food-pojo/src/main/java/com/imooc/pojo/UserAddress.java

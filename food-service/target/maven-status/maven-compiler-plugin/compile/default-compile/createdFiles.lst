@@ -9,4 +9,6 @@ com/imooc/service/CarouselService.class
 com/imooc/service/ItemsService.class
 com/imooc/service/impl/ItemsServiceImpl.class
 com/imooc/service/AddressService.class
+com/imooc/service/impl/center/MyOrdersServiceImpl.class
 com/imooc/service/center/CenterUserService.class
+com/imooc/service/center/MyOrdersService.class
