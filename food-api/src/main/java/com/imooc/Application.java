@@ -5,10 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
-/**
- * Hello world!
- */
-
 @SpringBootApplication
 @MapperScan(basePackages = "com.imooc.mapper")
 @EnableScheduling

@@ -16,21 +16,12 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         // 1. 添加cors配置信息
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://127.0.0.1:8080");
-//        config.addAllowedOrigin("http://shop.z.mukewang.com:8080");
-//        config.addAllowedOrigin("http://center.z.mukewang.com:8080");
-//        config.addAllowedOrigin("http://shop.z.mukewang.com");
-//        config.addAllowedOrigin("http://center.z.mukewang.com");
-//        config.addAllowedOrigin("*");
+        config.addAllowedOrigin("*"); // 允许所有来源
+        config.addAllowedMethod("*"); // 允许所有 HTTP 方法
+        config.addAllowedHeader("*"); // 允许所有请求头
 
         // 设置是否发送cookie信息
         config.setAllowCredentials(true);
-
-        // 设置允许请求的方式
-        config.addAllowedMethod("*");
-
-        // 设置允许的header
-        config.addAllowedHeader("*");
 
         // 2. 为url添加映射路径
         UrlBasedCorsConfigurationSource corsSource = new UrlBasedCorsConfigurationSource();
