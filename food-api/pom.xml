@@ -11,8 +11,6 @@
 
     <artifactId>food-api</artifactId>
 
-    <packaging>war</packaging>
-
     <!--
         api -> service -> mapper -> pojo -> common
     -->

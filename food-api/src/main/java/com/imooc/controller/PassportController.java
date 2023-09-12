@@ -10,7 +10,6 @@ import com.imooc.utils.MD5Utils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -90,9 +89,6 @@ public class PassportController {
         if (user == null) {
             return JSONResult.errorMsg("用户名或密码错误");
         }
-
-        String token = UUID.randomUUID().toString().trim();
-
 
         Users userRes = setNullProperty(user);
         CookieUtils.setCookie(req, resp, "user", JsonUtils.objectToJson(userRes), true);
